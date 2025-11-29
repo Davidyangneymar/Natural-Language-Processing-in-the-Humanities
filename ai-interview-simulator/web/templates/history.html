@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史记录 - AI 模拟面试系统</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航 -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="logo">🎯</span>
+                <span class="brand-text">AI 模拟面试系统</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">开始面试</a>
+                <a href="/history" class="nav-link active">历史记录</a>
+            </div>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="main-content history-page">
+            <section class="history-section">
+                <h1 class="page-title">📊 面试历史记录</h1>
+                
+                <!-- 用户选择 -->
+                <div class="user-select-card">
+                    <div class="form-group">
+                        <label for="history-user-id">输入用户 ID 查看历史</label>
+                        <div class="input-with-button">
+                            <input type="text" id="history-user-id" placeholder="例如: alice">
+                            <button id="load-history-btn" class="btn-primary">查看</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 用户统计 -->
+                <div id="history-stats" class="history-stats hidden">
+                    <h2>📈 <span id="history-user-name">用户</span> 的面试统计</h2>
+                    <div class="stats-grid large">
+                        <div class="stat-card">
+                            <div class="stat-icon">📝</div>
+                            <div class="stat-value" id="h-stat-total">0</div>
+                            <div class="stat-label">总面试次数</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-value" id="h-stat-avg">-</div>
+                            <div class="stat-label">平均得分</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-value" id="h-stat-best">-</div>
+                            <div class="stat-label">最高得分</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" id="h-trend-icon">📈</div>
+                            <div class="stat-value" id="h-stat-trend">-</div>
+                            <div class="stat-label">近期趋势</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 练习建议 -->
+                <div id="history-recommendations" class="recommendations-card hidden">
+                    <h3>💡 个性化练习建议</h3>
+                    <ul id="h-rec-list"></ul>
+                </div>
+
+                <!-- 历史记录列表 -->
+                <div id="history-list-section" class="history-list-section hidden">
+                    <h3>📋 面试记录</h3>
+                    <div id="history-list" class="history-list">
+                        <!-- 动态填充 -->
+                    </div>
+                </div>
+
+                <!-- 空状态 -->
+                <div id="empty-state" class="empty-state hidden">
+                    <div class="empty-icon">📭</div>
+                    <h3>暂无面试记录</h3>
+                    <p>开始你的第一次模拟面试吧！</p>
+                    <a href="/" class="btn-primary">开始面试</a>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>AI Multi-Agent Interview Simulator · Powered by Qwen</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/history.js"></script>
+</body>
+</html>

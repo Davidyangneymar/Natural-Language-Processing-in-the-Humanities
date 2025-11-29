@@ -1,0 +1,49 @@
+{
+  "user_id": "guest",
+  "created_at": "2025-11-29T23:04:47.839376",
+  "updated_at": "2025-11-29T23:35:26.446950",
+  "position": "数据分析师 (Data Analyst)",
+  "profile": {
+    "name": "",
+    "experience_years": 0,
+    "skills": [],
+    "target_companies": [],
+    "notes": ""
+  },
+  "weakness_tags": {
+    "缺少具体案例": 1,
+    "实验设计不完整": 1,
+    "案例准备不充分": 1
+  },
+  "strength_tags": {
+    "有落地成果": 1,
+    "团队协作好": 1,
+    "数据驱动思维": 1,
+    "案例具体生动": 1,
+    "业务理解深": 1,
+    "结构清晰": 1,
+    "逻辑严谨": 1
+  },
+  "interview_history": [
+    {
+      "timestamp": "2025-11-29T23:04:47.840503",
+      "final_score": 3.2,
+      "rounds_count": 5,
+      "added_at": "2025-11-29T23:10:50.878189"
+    },
+    {
+      "timestamp": "2025-11-29T23:31:44.434688",
+      "final_score": 8.25,
+      "rounds_count": 4,
+      "added_at": "2025-11-29T23:35:26.446950"
+    }
+  ],
+  "statistics": {
+    "total_interviews": 2,
+    "average_score": 5.72,
+    "best_score": 8.25,
+    "recent_trend": "",
+    "most_common_weakness": "缺少具体案例",
+    "most_common_strength": "有落地成果"
+  }
+}

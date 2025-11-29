@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面试报告 - AI 模拟面试系统</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航 -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="logo">🎯</span>
+                <span class="brand-text">AI 模拟面试系统</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">开始面试</a>
+                <a href="/history" class="nav-link">历史记录</a>
+            </div>
+        </nav>
+
+        <!-- 报告内容 -->
+        <main class="main-content report-page">
+            <div class="report-container">
+                <!-- 报告头部 -->
+                <header class="report-header">
+                    <h1>🎯 AI 模拟面试报告</h1>
+                    <div class="report-meta">
+                        <span id="report-user">候选人: -</span>
+                        <span id="report-position">岗位: 数据分析师</span>
+                        <span id="report-date">时间: -</span>
+                    </div>
+                    <div class="report-actions">
+                        <button id="export-md-btn" class="btn-secondary btn-small">
+                            📄 导出 Markdown
+                        </button>
+                        <button id="export-html-btn" class="btn-secondary btn-small">
+                            🌐 导出 HTML
+                        </button>
+                        <button id="print-btn" class="btn-secondary btn-small">
+                            🖨️ 打印
+                        </button>
+                    </div>
+                </header>
+
+                <!-- 总评 -->
+                <section class="report-section summary-section">
+                    <h2>📊 总体评估</h2>
+                    <div class="summary-content">
+                        <div class="summary-score">
+                            <span id="summary-emoji" class="score-emoji">🎯</span>
+                            <span id="summary-score" class="summary-score-value">-</span>
+                            <span class="score-max">/10</span>
+                            <div id="summary-level" class="summary-level">-</div>
+                        </div>
+                        <div class="summary-decision">
+                            <h3>面试结论</h3>
+                            <p id="summary-decision-text">-</p>
+                        </div>
+                    </div>
+                    <div class="summary-feedback">
+                        <h3>整体评价</h3>
+                        <p id="summary-feedback-text">-</p>
+                    </div>
+                </section>
+
+                <!-- 各维度得分 -->
+                <section class="report-section dimensions-section">
+                    <h2>📈 各维度得分</h2>
+                    <div id="dimensions-chart" class="dimensions-chart">
+                        <!-- 动态生成 -->
+                    </div>
+                </section>
+
+                <!-- 优劣势 -->
+                <section class="report-section strengths-weaknesses">
+                    <div class="sw-columns">
+                        <div class="sw-column">
+                            <h2>✅ 关键优势</h2>
+                            <ul id="strengths-list"></ul>
+                        </div>
+                        <div class="sw-column">
+                            <h2>⚠️ 待改进点</h2>
+                            <ul id="weaknesses-list"></ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 各轮详情 -->
+                <section class="report-section rounds-section">
+                    <h2>📝 各轮面试详情</h2>
+                    <div id="rounds-list" class="rounds-list">
+                        <!-- 动态生成 -->
+                    </div>
+                </section>
+
+                <!-- 改进建议 -->
+                <section class="report-section suggestions-section">
+                    <h2>💡 改进建议</h2>
+                    <ol id="suggestions-list"></ol>
+                </section>
+
+                <!-- 页脚 -->
+                <footer class="report-footer">
+                    <p>本报告由 AI Multi-Agent Interview Simulator 自动生成</p>
+                    <p id="generate-time">生成时间: -</p>
+                </footer>
+            </div>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>AI Multi-Agent Interview Simulator · Powered by Qwen</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/report.js"></script>
+</body>
+</html>

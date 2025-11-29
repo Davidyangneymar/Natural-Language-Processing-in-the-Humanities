@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 模拟面试系统 - 数据分析师</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 顶部导航 -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="logo">🎯</span>
+                <span class="brand-text">AI 模拟面试系统</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link active">开始面试</a>
+                <a href="/history" class="nav-link">历史记录</a>
+            </div>
+        </nav>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- Hero 区域 -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">数据分析师</span>
+                        <br>多面试官智能模拟面试
+                    </h1>
+                    <p class="hero-subtitle">
+                        5轮真实面试场景 · 多角色AI面试官 · 即时评分反馈 · 个性化改进建议
+                    </p>
+                </div>
+            </section>
+
+            <!-- 面试流程介绍 -->
+            <section class="process-section">
+                <h2 class="section-title">📋 面试流程</h2>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-icon">👔</div>
+                        <div class="step-info">
+                            <h3>HR 初筛</h3>
+                            <p>求职动机、职业规划、稳定性</p>
+                            <span class="weight-badge">15%</span>
+                        </div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <div class="step-icon">💼</div>
+                        <div class="step-info">
+                            <h3>业务经理面</h3>
+                            <p>项目经历、业务理解、跨部门协作</p>
+                            <span class="weight-badge">25%</span>
+                        </div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <div class="step-icon">💻</div>
+                        <div class="step-info">
+                            <h3>技术面</h3>
+                            <p>SQL、统计、Python、实验设计</p>
+                            <span class="weight-badge">35%</span>
+                        </div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <div class="step-icon">🤝</div>
+                        <div class="step-info">
+                            <h3>文化契合度</h3>
+                            <p>团队协作、价值观、工作风格</p>
+                            <span class="weight-badge">15%</span>
+                        </div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-step">
+                        <div class="step-icon">⭐</div>
+                        <div class="step-info">
+                            <h3>终面评审</h3>
+                            <p>综合评估、最终决策</p>
+                            <span class="weight-badge">10%</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 开始面试卡片 -->
+            <section class="start-section">
+                <div class="start-card">
+                    <h2>🚀 准备好了吗？</h2>
+                    
+                    <div class="form-group">
+                        <label for="user-id">你的用户 ID（用于保存记录）</label>
+                        <input type="text" id="user-id" placeholder="例如: alice" autocomplete="off">
+                        <small>新用户直接输入 ID 即可创建账户</small>
+                    </div>
+
+                    <!-- 用户历史统计（动态显示） -->
+                    <div id="user-stats" class="user-stats hidden">
+                        <h3>📊 你的历史记录</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-total">0</span>
+                                <span class="stat-label">面试次数</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-avg">-</span>
+                                <span class="stat-label">平均得分</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-best">-</span>
+                                <span class="stat-label">最高得分</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="stat-trend">-</span>
+                                <span class="stat-label">近期趋势</span>
+                            </div>
+                        </div>
+                        <div id="recommendations" class="recommendations hidden">
+                            <h4>💡 练习建议</h4>
+                            <ul id="rec-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="mode-selection">
+                        <h3>选择面试模式</h3>
+                        <div class="mode-options">
+                            <label class="mode-option selected" data-mode="full">
+                                <input type="radio" name="mode" value="full" checked>
+                                <div class="mode-card">
+                                    <span class="mode-icon">🎯</span>
+                                    <span class="mode-name">完整面试</span>
+                                    <span class="mode-desc">体验全部5轮面试流程</span>
+                                </div>
+                            </label>
+                            <label class="mode-option" data-mode="practice">
+                                <input type="radio" name="mode" value="practice">
+                                <div class="mode-card">
+                                    <span class="mode-icon">⚡</span>
+                                    <span class="mode-name">快速练习</span>
+                                    <span class="mode-desc">选择特定轮次针对性练习</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 快速练习选项 -->
+                    <div id="practice-options" class="practice-options hidden">
+                        <h3>选择练习轮次</h3>
+                        <div class="practice-rounds">
+                            <label class="round-option">
+                                <input type="radio" name="practice_round" value="HR">
+                                <div class="round-card">
+                                    <span>👔</span> HR 初筛
+                                </div>
+                            </label>
+                            <label class="round-option">
+                                <input type="radio" name="practice_round" value="HiringManager">
+                                <div class="round-card">
+                                    <span>💼</span> 业务经理面
+                                </div>
+                            </label>
+                            <label class="round-option">
+                                <input type="radio" name="practice_round" value="Technical" checked>
+                                <div class="round-card">
+                                    <span>💻</span> 技术面
+                                </div>
+                            </label>
+                            <label class="round-option">
+                                <input type="radio" name="practice_round" value="CultureFit">
+                                <div class="round-card">
+                                    <span>🤝</span> 文化契合度
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button id="start-btn" class="btn-primary btn-large">
+                        <span>开始面试</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+
+                    <div id="api-status" class="api-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">检查 API 状态中...</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 特色功能 -->
+            <section class="features-section">
+                <h2 class="section-title">✨ 核心功能</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>多角色 AI 面试官</h3>
+                        <p>5位不同角色的面试官，从不同维度评估你的能力</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>即时评分反馈</h3>
+                        <p>每轮面试即时获得分数和详细反馈，知道自己的表现</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>智能追问</h3>
+                        <p>当回答不够深入时，AI会自动追问深挖你的经历</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>成长追踪</h3>
+                        <p>长期记录你的表现，分析弱项趋势，提供改进建议</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📄</div>
+                        <h3>报告导出</h3>
+                        <p>完整面试报告导出，支持 Markdown 和 HTML 格式</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏷️</div>
+                        <h3>标签系统</h3>
+                        <p>优势和弱项标签化，精准定位你的提升方向</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>AI Multi-Agent Interview Simulator · Powered by Qwen</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/static/js/index.js"></script>
+</body>
+</html>

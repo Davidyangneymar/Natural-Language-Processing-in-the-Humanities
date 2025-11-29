@@ -1,0 +1,14 @@
+# AI Interview Simulator Dependencies
+# 数据分析师多面试官智能面试模拟器依赖
+
+# Qwen API (通过 OpenAI 兼容接口调用)
+openai>=1.0.0
+
+# Web UI 依赖
+flask>=2.3.0
+flask-socketio>=5.3.0
+python-socketio>=5.8.0
+eventlet>=0.33.0
+
+# 可选：如果需要直接使用阿里云 DashScope SDK
+dashscope>=1.14.0

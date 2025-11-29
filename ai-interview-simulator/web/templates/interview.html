@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面试进行中 - AI 模拟面试系统</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+    <div class="app-container interview-page">
+        <!-- 顶部导航 -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="logo">🎯</span>
+                <span class="brand-text">AI 模拟面试系统</span>
+            </div>
+            <div class="nav-info">
+                <span id="user-display">用户: -</span>
+                <span id="position-display">岗位: 数据分析师</span>
+            </div>
+        </nav>
+
+        <!-- 面试主区域 -->
+        <main class="interview-main">
+            <!-- 左侧：进度面板 -->
+            <aside class="progress-panel">
+                <h3>📋 面试进度</h3>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+                </div>
+                <div id="progress-text" class="progress-text">准备中...</div>
+                
+                <div class="rounds-list">
+                    <div class="round-item" data-round="HR">
+                        <span class="round-icon">👔</span>
+                        <span class="round-name">HR 初筛</span>
+                        <span class="round-status">⏳</span>
+                        <span class="round-score hidden">-</span>
+                    </div>
+                    <div class="round-item" data-round="HiringManager">
+                        <span class="round-icon">💼</span>
+                        <span class="round-name">业务经理面</span>
+                        <span class="round-status">⏳</span>
+                        <span class="round-score hidden">-</span>
+                    </div>
+                    <div class="round-item" data-round="Technical">
+                        <span class="round-icon">💻</span>
+                        <span class="round-name">技术面</span>
+                        <span class="round-status">⏳</span>
+                        <span class="round-score hidden">-</span>
+                    </div>
+                    <div class="round-item" data-round="CultureFit">
+                        <span class="round-icon">🤝</span>
+                        <span class="round-name">文化契合度</span>
+                        <span class="round-status">⏳</span>
+                        <span class="round-score hidden">-</span>
+                    </div>
+                    <div class="round-item" data-round="Committee">
+                        <span class="round-icon">⭐</span>
+                        <span class="round-name">终面评审</span>
+                        <span class="round-status">⏳</span>
+                        <span class="round-score hidden">-</span>
+                    </div>
+                </div>
+
+                <div class="panel-actions">
+                    <button id="end-interview-btn" class="btn-danger btn-small">
+                        结束面试
+                    </button>
+                </div>
+            </aside>
+
+            <!-- 中间：对话区域 -->
+            <section class="chat-section">
+                <div id="chat-container" class="chat-container">
+                    <!-- 欢迎消息 -->
+                    <div class="chat-message system-message">
+                        <div class="message-content">
+                            <p>👋 欢迎参加数据分析师模拟面试！</p>
+                            <p>面试即将开始，请做好准备...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 输入区域 -->
+                <div class="input-section">
+                    <div id="input-hint" class="input-hint hidden">
+                        💡 提示：使用 STAR 结构回答行为问题（情境-任务-行动-结果）
+                    </div>
+                    <div class="input-container">
+                        <textarea 
+                            id="answer-input" 
+                            placeholder="在这里输入你的回答..." 
+                            rows="3"
+                            disabled
+                        ></textarea>
+                        <div class="input-actions">
+                            <button id="skip-btn" class="btn-secondary" disabled>
+                                跳过
+                            </button>
+                            <button id="submit-btn" class="btn-primary" disabled>
+                                <span>提交回答</span>
+                                <span class="shortcut">Ctrl+Enter</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 右侧：评估面板 -->
+            <aside class="evaluation-panel">
+                <h3>📊 本轮评估</h3>
+                
+                <div id="evaluation-content" class="evaluation-content">
+                    <div class="evaluation-placeholder">
+                        <p>等待面试开始...</p>
+                        <p>评估结果将在你回答后显示</p>
+                    </div>
+                </div>
+
+                <!-- 评估结果模板（初始隐藏） -->
+                <div id="evaluation-result" class="evaluation-result hidden">
+                    <div class="score-display">
+                        <span id="score-emoji" class="score-emoji">📊</span>
+                        <span id="score-value" class="score-value">-</span>
+                        <span class="score-max">/10</span>
+                    </div>
+                    <div id="score-level" class="score-level">-</div>
+                    
+                    <div class="feedback-section">
+                        <h4>💬 反馈</h4>
+                        <p id="feedback-text">-</p>
+                    </div>
+                    
+                    <div class="tags-section">
+                        <div id="strength-tags" class="tags-group hidden">
+                            <h4>✅ 优势</h4>
+                            <div class="tags"></div>
+                        </div>
+                        <div id="weakness-tags" class="tags-group hidden">
+                            <h4>⚠️ 待改进</h4>
+                            <div class="tags"></div>
+                        </div>
+                    </div>
+                    
+                    <div id="hint-section" class="hint-section hidden">
+                        <h4>💡 建议</h4>
+                        <p id="hint-text">-</p>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <!-- 最终评估弹窗 -->
+        <div id="final-modal" class="modal hidden">
+            <div class="modal-content final-evaluation-modal">
+                <div class="modal-header">
+                    <h2>🏆 终面评审委员会评估</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="final-score-section">
+                        <div class="final-score-display">
+                            <span id="final-emoji" class="score-emoji">🎯</span>
+                            <span id="final-score" class="final-score-value">-</span>
+                            <span class="score-max">/10</span>
+                        </div>
+                        <div id="final-level" class="final-level">-</div>
+                        <div id="final-decision" class="final-decision">-</div>
+                    </div>
+                    
+                    <div class="final-details">
+                        <div class="final-section">
+                            <h4>📝 整体评价</h4>
+                            <p id="final-feedback">-</p>
+                        </div>
+                        
+                        <div class="final-columns">
+                            <div class="final-section">
+                                <h4>✅ 关键优势</h4>
+                                <ul id="final-strengths"></ul>
+                            </div>
+                            <div class="final-section">
+                                <h4>⚠️ 待改进点</h4>
+                                <ul id="final-weaknesses"></ul>
+                            </div>
+                        </div>
+                        
+                        <div class="final-section">
+                            <h4>💡 改进建议</h4>
+                            <ol id="final-suggestions"></ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="view-report-btn" class="btn-secondary">
+                        📄 查看完整报告
+                    </button>
+                    <button id="back-home-btn" class="btn-primary">
+                        返回首页
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 加载遮罩 -->
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="loading-spinner"></div>
+            <p id="loading-text">处理中...</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/static/js/interview.js"></script>
+</body>
+</html>

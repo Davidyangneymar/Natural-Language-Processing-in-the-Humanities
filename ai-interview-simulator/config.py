@@ -20,7 +20,7 @@ DATA_DIR = BASE_DIR / "data"
 
 # ==================== Qwen API 配置 ====================
 # 请在此处填入你的 Qwen API Key，或通过环境变量 QWEN_API_KEY 设置
-QWEN_API_KEY = os.environ.get("QWEN_API_KEY", "sk-01a157549b014287abd473b6b0ddcad7")
+QWEN_API_KEY = os.environ.get("QWEN_API_KEY", "##########")
 QWEN_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 QWEN_MODEL = "qwen-plus"  # 可选: qwen-turbo, qwen-plus, qwen-max
 

@@ -170,7 +170,6 @@ ai-interview-simulator/
 - `qwen-max`: 最强能力
 
 ## 📈 后续扩展
-- [ ] Web UI 界面
 - [ ] 语音输入支持
 - [ ] 更多岗位支持（Product Analyst, Marketing Analyst 等）
 - [ ] 多语言支持

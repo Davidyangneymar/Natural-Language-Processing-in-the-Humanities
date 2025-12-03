@@ -82,7 +82,9 @@ python web/app.py
 - **历史记录**: 查看过往面试记录和趋势
 - **报告页面**: 完整面试报告查看和导出
 
-![Web UI 截图](docs/screenshot.png)
+![Web UI 截图](<img width="3180" height="1654" alt="image" src="https://github.com/user-attachments/assets/f1487112-bb7a-4d54-80bb-1db7451a931c" />
+<img width="3191" height="1659" alt="屏幕截图 2025-12-03 101315" src="https://github.com/user-attachments/assets/261ce845-2115-4de7-86b5-339bb487b049" />
+<img width="3199" height="1663" alt="屏幕截图 2025-12-03 101338" src="https://github.com/user-attachments/assets/8c7f7f36-c209-4f1c-935a-f71bf48bbd2d" />)
 
 ## 📁 项目结构
 
